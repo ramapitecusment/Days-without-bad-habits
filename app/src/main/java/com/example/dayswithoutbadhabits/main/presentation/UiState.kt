@@ -1,4 +1,4 @@
-package com.example.dayswithoutbadhabits
+package com.example.dayswithoutbadhabits.main.presentation
 
 import android.view.View
 import android.widget.Button

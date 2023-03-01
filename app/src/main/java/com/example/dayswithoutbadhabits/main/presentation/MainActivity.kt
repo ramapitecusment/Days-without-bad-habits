@@ -1,10 +1,11 @@
-package com.example.dayswithoutbadhabits
+package com.example.dayswithoutbadhabits.main.presentation
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.dayswithoutbadhabits.R
 import com.example.dayswithoutbadhabits.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {

@@ -1,4 +1,4 @@
-package com.example.dayswithoutbadhabits
+package com.example.dayswithoutbadhabits.main.data
 
 interface MainRepository {
 

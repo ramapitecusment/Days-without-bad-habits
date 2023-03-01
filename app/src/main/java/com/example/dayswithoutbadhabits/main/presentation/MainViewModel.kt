@@ -1,4 +1,6 @@
-package com.example.dayswithoutbadhabits
+package com.example.dayswithoutbadhabits.main.presentation
+
+import com.example.dayswithoutbadhabits.main.data.MainRepository
 
 class MainViewModel(
     private val repository: MainRepository,

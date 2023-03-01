@@ -1,6 +1,10 @@
 package com.example.dayswithoutbadhabits
 
 import androidx.lifecycle.LifecycleOwner
+import com.example.dayswithoutbadhabits.main.presentation.MainCommunication
+import com.example.dayswithoutbadhabits.main.data.MainRepository
+import com.example.dayswithoutbadhabits.main.presentation.MainViewModel
+import com.example.dayswithoutbadhabits.main.presentation.UiState
 import org.junit.Before
 import org.junit.Test
 import kotlin.properties.Delegates
