@@ -4,4 +4,6 @@ interface MainRepository {
 
     fun days(): Int
 
+    fun reset()
+
 }

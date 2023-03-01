@@ -12,4 +12,8 @@ class MainViewModel(
         communication.put(state)
     }
 
+    fun reset() {
+
+    }
+
 }
