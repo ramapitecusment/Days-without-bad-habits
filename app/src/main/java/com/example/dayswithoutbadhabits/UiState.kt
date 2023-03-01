@@ -15,7 +15,7 @@ sealed class UiState {
         }
     }
 
-    class NDays(private val days: Int) : UiState() {
+    data class NDays(private val days: Int) : UiState() {
         override fun apply(daysTextView: TextView, resetButton: Button) {
             daysTextView.text = days.toString()
             resetButton.visibility = View.VISIBLE

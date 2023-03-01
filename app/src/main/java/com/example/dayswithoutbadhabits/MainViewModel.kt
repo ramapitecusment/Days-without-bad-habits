@@ -13,7 +13,8 @@ class MainViewModel(
     }
 
     fun reset() {
-
+        repository.reset()
+        communication.put(UiState.ZeroDays)
     }
 
 }
