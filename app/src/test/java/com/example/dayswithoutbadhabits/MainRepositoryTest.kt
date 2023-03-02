@@ -1,28 +1,30 @@
 package com.example.dayswithoutbadhabits
 
+import com.example.dayswithoutbadhabits.main.data.CacheDataSource
 import com.example.dayswithoutbadhabits.main.data.MainRepository
+import com.example.dayswithoutbadhabits.main.data.Now
 import org.junit.Before
 import org.junit.Test
 import kotlin.test.assertEquals
 
 class MainRepositoryTest {
 
+    private lateinit var now: FakeNow
     private lateinit var repository: MainRepository
     private lateinit var cacheDataSource: FakeDataSource
-    private lateinit var now: FakeNow
 
     @Before
     fun setup() {
         now = FakeNow.Base()
         cacheDataSource = FakeDataSource()
-        repository = MainRepository.Base(cacheDataSource, now)
+        repository = MainRepository.Base(now, cacheDataSource)
     }
 
     @Test
     fun test_no_days() {
         now.setNowTime(1544)
-        val acual = repository.days()
-        assertEquals(0, acual)
+        val actual = repository.days()
+        assertEquals(0, actual)
         assertEquals(1544, cacheDataSource.time(-1))
     }
 
@@ -30,8 +32,8 @@ class MainRepositoryTest {
     fun test_n_days() {
         cacheDataSource.save(2 * 24 * 3600 * 1000)
         now.setNowTime(9 * 24 * 3600 * 1000)
-        val acual = repository.days()
-        assertEquals(7, acual)
+        val actual = repository.days()
+        assertEquals(7, actual)
     }
 
     @Test
