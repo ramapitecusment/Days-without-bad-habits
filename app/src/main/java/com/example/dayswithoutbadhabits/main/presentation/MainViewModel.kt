@@ -1,11 +1,14 @@
 package com.example.dayswithoutbadhabits.main.presentation
 
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ViewModel
+import com.example.dayswithoutbadhabits.core.Communication
 import com.example.dayswithoutbadhabits.main.data.MainRepository
 
 class MainViewModel(
     private val repository: MainRepository,
-    private val communication: MainCommunication,
-) {
+    private val communication: Communication.Post<UiState>,
+) : ViewModel() {
 
     fun init(isFirstRun: Boolean) {
         if (!isFirstRun) return
@@ -18,5 +21,7 @@ class MainViewModel(
         repository.reset()
         communication.put(UiState.ZeroDays)
     }
+
+    fun observe(owner: LifecycleOwner, action: (UiState) -> Unit) = communication.observe(owner, action)
 
 }

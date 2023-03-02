@@ -74,5 +74,5 @@ private class FakeDataSource : CacheDataSource {
     }
 
     override fun time(default: Long): Long = if (time == -1L) default else time
-    
+
 }
