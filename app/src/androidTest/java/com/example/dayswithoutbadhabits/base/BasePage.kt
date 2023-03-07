@@ -7,7 +7,7 @@ import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import org.hamcrest.CoreMatchers
 
-open class BasePage : BaseTest() {
+open class BasePage : AbstractUiTest() {
 
     private fun Int.view() = Espresso.onView(ViewMatchers.withId(this))
 
@@ -19,7 +19,7 @@ open class BasePage : BaseTest() {
 
     protected fun Int.checkText(value: String) = view().check(ViewAssertions.matches(ViewMatchers.withText(value)))
 
-    protected fun Int.checkInvisible() = view().check(ViewAssertions.matches(CoreMatchers.not(ViewMatchers.isDisplayed())))
+    protected fun Int.checkNotVisible() = view().check(ViewAssertions.matches(CoreMatchers.not(ViewMatchers.isDisplayed())))
 
     protected fun Int.click() = view().perform(ViewActions.click())
 

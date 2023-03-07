@@ -17,7 +17,7 @@ class MainActivityTest : MainPage() {
         days.checkText("17")
         reset.click()
         days.checkText("0")
-        reset.checkInvisible()
+        reset.checkNotVisible()
     }
 
 }

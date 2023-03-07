@@ -7,7 +7,7 @@ import org.junit.runner.RunWith
 import org.koin.core.component.KoinComponent
 
 @RunWith(AndroidJUnit4::class)
-abstract class BaseTest: KoinComponent {
+abstract class AbstractUiTest: KoinComponent {
 
     @get:Rule
     val activityScenarioRule = lazyActivityScenarioRule<MainActivity>(false)
