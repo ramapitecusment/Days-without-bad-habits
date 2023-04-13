@@ -12,21 +12,18 @@ import kotlinx.coroutines.launch
 interface Communication {
 
     interface Observe<T> {
-
         fun observe(owner: LifecycleOwner, action: (T) -> Unit)
-
     }
 
-    interface Mutate<T> {
-
+    interface Put<T> {
         fun put(value: T)
-
     }
 
-    interface Mutable<T> : Observe<T>, Mutate<T>
+    interface Mutable<T> : Observe<T>, Put<T>
 
     abstract class Abstract<T>(
-        protected val state: MutableStateFlow<T>
+        private val initialValue: T,
+        private val state: MutableStateFlow<T> = MutableStateFlow(initialValue)
     ) : Mutable<T> {
 
         override fun observe(owner: LifecycleOwner, action: (T) -> Unit) {
@@ -36,10 +33,6 @@ interface Communication {
                 }
             }
         }
-
-    }
-
-    abstract class Post<T>(initialValue: T) : Abstract<T>(MutableStateFlow(initialValue)) {
 
         override fun put(value: T) {
             state.value = value

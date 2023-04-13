@@ -12,7 +12,7 @@ import org.koin.dsl.module
 
 val mainModule = module {
 
-    viewModel { MainViewModel(get(), MainCommunication()) }
+    viewModel { MainViewModel(get(), get()) }
 
     singleOf(Now::Base) bind Now::class
     singleOf(MainRepository::Base) bind MainRepository::class

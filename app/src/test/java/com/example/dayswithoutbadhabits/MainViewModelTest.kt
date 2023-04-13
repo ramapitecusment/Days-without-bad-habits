@@ -3,8 +3,11 @@ package com.example.dayswithoutbadhabits
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.Observer
-import org.junit.Before
+import com.example.dayswithoutbadhabits.main.domain.Card
+import com.example.dayswithoutbadhabits.main.domain.MainInteractor
+import com.example.dayswithoutbadhabits.main.presentation.MainCommunication
+import com.example.dayswithoutbadhabits.main.presentation.MainUiState
+import com.example.dayswithoutbadhabits.main.presentation.MainViewModel
 import org.junit.Test
 import kotlin.test.assertEquals
 
@@ -658,9 +661,10 @@ private class FakeCommunication : MainCommunication.Mutable {
     }
 
     var observeCalled = false
-    override fun observe(owner: LifecycleOwner, observer: Observer<MainUiState>) {
+    override fun observe(owner: LifecycleOwner, action: (MainUiState) -> Unit) {
         observeCalled = true
     }
+
 }
 
 private class FakeLifecycleOwner : LifecycleOwner {
